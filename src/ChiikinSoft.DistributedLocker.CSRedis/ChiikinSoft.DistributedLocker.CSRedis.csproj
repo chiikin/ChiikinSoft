@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CSRedisCore" Version="3.6.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ChiikinSoft.DistributedLocker\ChiikinSoft.DistributedLocker.csproj" />
   </ItemGroup>
 
