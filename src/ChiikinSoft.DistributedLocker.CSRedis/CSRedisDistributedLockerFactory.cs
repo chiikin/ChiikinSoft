@@ -6,24 +6,28 @@ namespace ChiikinSoft.DistributedLocker.CSRedis
 {
     public class CSRedisDistributedLockerFactory : IDistributedLockerFactory
     {
+        public CSRedisDistributedLockerFactory()
+        {
+            watchDog = new WatchDog();
+            defaultExpireTime = TimeSpan.FromSeconds(30);//默认过期时间30s
+        }
+
+        private TimeSpan defaultExpireTime;
+        private WatchDog watchDog;
+
         public IDistributedLocker Create(string key)
         {
-            throw new NotImplementedException();
+            return new CSRedisDistributedLocker(key, defaultExpireTime, watchDog);
         }
 
         public IDistributedLocker Create(string key, TimeSpan expireTime)
         {
-            throw new NotImplementedException();
+            return new CSRedisDistributedLocker(key, expireTime, watchDog);
         }
 
-        public void SetExpire(TimeSpan timeSpan)
+        public void SetExpireTime(TimeSpan expireTime)
         {
-            throw new NotImplementedException();
-        }
-
-        public void SetWaitTime(TimeSpan timeSpan)
-        {
-            throw new NotImplementedException();
+            defaultExpireTime = expireTime;
         }
     }
 }

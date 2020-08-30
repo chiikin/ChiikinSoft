@@ -16,8 +16,6 @@ namespace ChiikinSoft.DistributedLocker
 
         //bool TryEnter(string key, TimeSpan waitTime, TimeSpan expireTime, out IDistributedLocker locker);
 
-        void SetExpire(TimeSpan timeSpan);
-
-        void SetWaitTime(TimeSpan timeSpan);
+        void SetExpireTime(TimeSpan timeSpan);
     }
 }

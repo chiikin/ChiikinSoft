@@ -61,8 +61,6 @@ namespace ChiikinSoft.DistributedLocker.CSRedis
             Stopwatch executeWatch = new Stopwatch();
             executeWatch.Start();
             bool lockSuccess = false;
-            //Stopwatch executeWatch = new Stopwatch();
-            //executeWatch.Start();
             do
             {
                 lockSuccess = TrySetKey();
@@ -90,15 +88,6 @@ namespace ChiikinSoft.DistributedLocker.CSRedis
                     }
                     Thread.Sleep(100);
                 }
-                //if (!lockSuccess && executeWatch.ElapsedTicks < waitTime.Ticks)
-                //{
-                //    Thread.Sleep(100);
-                //}
-                //else
-                //{
-                //    watchDog.Add(UUID, key, expireTime, expireTime - executeWatch.Elapsed);
-                //    break;
-                //}
             } while (true);
             return lockSuccess;
         }

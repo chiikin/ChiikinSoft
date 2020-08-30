@@ -17,7 +17,7 @@ namespace ChiikinSoft.DistributedLocker.Redis
             throw new NotImplementedException();
         }
 
-        public void SetExpire(TimeSpan timeSpan)
+        public void SetExpireTime(TimeSpan timeSpan)
         {
             throw new NotImplementedException();
         }
