@@ -27,7 +27,7 @@ namespace ChiikinSoft.DistributedLocker.CSRedis
             WatchInfo watchInfo = new WatchInfo()
             {
                 UUID = uuid,
-                Key = key,
+                RedisKey = key,
                 RenewalInterval = new TimeSpan(expireTime.Ticks / 2),
                 ExpireAtTicks = runningWatcher.ElapsedTicks + stillExpireTime.Ticks
             };
@@ -71,7 +71,7 @@ namespace ChiikinSoft.DistributedLocker.CSRedis
                     {
                         TimeSpan expireAt = TimeSpan.FromSeconds(w.Value.RenewalInterval.TotalSeconds * 2);
                         executeWatch.Reset();
-                        if(UpdateExpire(w.Value.Key, w.Value.UUID, (long)expireAt.TotalSeconds))
+                        if(UpdateExpire(w.Value.RedisKey, w.Value.UUID, (long)expireAt.TotalSeconds))
                         {
                             executeWatch.Stop();
                             w.Value.ExpireAtTicks = runningWatcher.ElapsedTicks + expireAt.Ticks - executeWatch.ElapsedTicks;
@@ -101,7 +101,7 @@ namespace ChiikinSoft.DistributedLocker.CSRedis
         {
             public string UUID { get; set; }
 
-            public string Key { get; set; }
+            public string RedisKey { get; set; }
 
             public TimeSpan RenewalInterval { get; set; }
             public long ExpireAtTicks { get; set; }

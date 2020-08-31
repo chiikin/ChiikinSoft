@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiikinSoft.DistributedLocker", "src\ChiikinSoft.DistributedLocker\ChiikinSoft.DistributedLocker.csproj", "{A3CE0538-CF75-4140-8832-34230FEE74D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChiikinSoft.DistributedLocker", "src\ChiikinSoft.DistributedLocker\ChiikinSoft.DistributedLocker.csproj", "{A3CE0538-CF75-4140-8832-34230FEE74D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiikinSoft.DistributedLocker.CSRedis", "src\ChiikinSoft.DistributedLocker.CSRedis\ChiikinSoft.DistributedLocker.CSRedis.csproj", "{1A49788F-C8C9-4D8F-A199-25DC92B8E42C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChiikinSoft.DistributedLocker.CSRedis", "src\ChiikinSoft.DistributedLocker.CSRedis\ChiikinSoft.DistributedLocker.CSRedis.csproj", "{1A49788F-C8C9-4D8F-A199-25DC92B8E42C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiikinSoft.DistributedLocker.Redis", "src\ChiikinSoft.DistributedLocker.Redis\ChiikinSoft.DistributedLocker.Redis.csproj", "{783C6FAC-1846-4EE6-987C-B11760A5ED38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChiikinSoft.DistributedLocker.Redis", "src\ChiikinSoft.DistributedLocker.Redis\ChiikinSoft.DistributedLocker.Redis.csproj", "{783C6FAC-1846-4EE6-987C-B11760A5ED38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2BDC4130-1490-4425-A9A8-9B09EF8304B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChiikinSoft.Tests", "src\ChiikinSoft.Tests\ChiikinSoft.Tests.csproj", "{9286CEFD-042F-4A64-87C5-A78D7BCD0F20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +31,16 @@ Global
 		{783C6FAC-1846-4EE6-987C-B11760A5ED38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{783C6FAC-1846-4EE6-987C-B11760A5ED38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{783C6FAC-1846-4EE6-987C-B11760A5ED38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9286CEFD-042F-4A64-87C5-A78D7BCD0F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9286CEFD-042F-4A64-87C5-A78D7BCD0F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9286CEFD-042F-4A64-87C5-A78D7BCD0F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9286CEFD-042F-4A64-87C5-A78D7BCD0F20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9286CEFD-042F-4A64-87C5-A78D7BCD0F20} = {2BDC4130-1490-4425-A9A8-9B09EF8304B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DE9B2FAB-C0A2-4B4C-B0B3-70A6A55896FD}

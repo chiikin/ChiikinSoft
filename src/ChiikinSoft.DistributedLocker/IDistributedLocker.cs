@@ -2,8 +2,10 @@
 
 namespace ChiikinSoft.DistributedLocker
 {
-    public interface IDistributedLocker:IDisposable
+    public interface IDistributedLocker : IDisposable
     {
+        string Key { get; }
+
         void Enter();
 
         bool TryEnter(TimeSpan waitTime);

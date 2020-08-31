@@ -11,9 +11,10 @@ namespace ChiikinSoft.DistributedLocker.CSRedis
     public class CSRedisDistributedLocker : IDistributedLocker
     {
 
-        public CSRedisDistributedLocker(string key, TimeSpan expireTime, WatchDog watchDog)
+        public CSRedisDistributedLocker(string key,string redisKey, TimeSpan expireTime, WatchDog watchDog)
         {
             this.key = key;
+            this.redisKey = redisKey;
             this.expireTime = expireTime;
             this.watchDog = watchDog;
             UUID = Guid.NewGuid().ToString("N");
@@ -24,8 +25,11 @@ namespace ChiikinSoft.DistributedLocker.CSRedis
         private bool locking;
         private int lockCount;
         private readonly string UUID;
+        private readonly string redisKey;
         private TimeSpan expireTime;
         private WatchDog watchDog;
+
+        public string Key { get; }
 
         public void Enter()
         {
@@ -71,7 +75,9 @@ namespace ChiikinSoft.DistributedLocker.CSRedis
                     if (expireTime.Ticks / 2 - executeWatch.ElapsedTicks > 0)
                     {
                         //执行加锁的的时间必须小于1/2 expireTime
-                        watchDog.Add(UUID, key, expireTime, expireTime - executeWatch.Elapsed);
+                        watchDog.Add(UUID, redisKey, expireTime, expireTime - executeWatch.Elapsed);
+                        locking = true;
+                        lockCount = 1;
                     }
                     else
                     {
